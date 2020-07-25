@@ -3,6 +3,7 @@
 const express = require("express");
 const path = require("path");
 const fs = require("fs");
+const uuid = require("uuid");
 
 // Require data of existing notes from db.json
 const data = require("./db/db.json");
@@ -22,7 +23,6 @@ app.use(express.json());
 
 // Set static folder
 app.use(express.static(path.join(__dirname, "public")));
-
 // app.get("/", function(req, res) {
 //     res.sendFile(path.join(__dirname, "public", "index.html"));
 // });
@@ -36,31 +36,36 @@ app.use(express.static(path.join(__dirname, "public")));
 // =============================================================
 
 app.get("/api/notes", function(req, res) {
+    console.log("========================================")
+    console.log(data)
     return res.json(data);
 });
 
+// Create new note
 app.post("/api/notes", function(req, res) {
-    console.log(req.body);
     const newNote = {
+        id: uuid.v4(),
         title: req.body.title,
         text: req.body.text
     }
 
-    if(!newNote.title || !newNote.text){
-        res.status(400).json({ msg: 'Please include a title and text' });
-    }
-
     // Add new note to "data" array and re-write the db.json file
-    data.push(req.body);
+    data.push(newNote);
     fs.writeFile("./db/db.json", JSON.stringify(data), function(error) {
         if (error) {
             return console.log(error)
         }
-        console.log("Successfully written to database")
+        console.log(data);
+        console.log("Successfully written to database");
     })
 
     // Update the saved notes on the DOM
 });
+
+// Delete note
+app.delete("/api/notes/:id", function(req, res) {
+    res.json(notes.filter(note => note.id === parseInt(req.params.id)))
+})
 
 // Starts the server to begin listening
 // =============================================================
