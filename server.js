@@ -36,8 +36,6 @@ app.use(express.static(path.join(__dirname, "public")));
 // =============================================================
 
 app.get("/api/notes", function(req, res) {
-    console.log("========================================")
-    console.log(data)
     return res.json(data);
 });
 
@@ -55,16 +53,29 @@ app.post("/api/notes", function(req, res) {
         if (error) {
             return console.log(error)
         }
-        console.log(data);
         console.log("Successfully written to database");
     })
-
-    // Update the saved notes on the DOM
 });
 
 // Delete note
 app.delete("/api/notes/:id", function(req, res) {
-    res.json(notes.filter(note => note.id === parseInt(req.params.id)))
+    // Find the note with the id that matches the post request
+    let deleteIndex = 0;
+    for (let i = 0; i < data.length; i++) {
+        if (data[i].id === req.params.id) {
+            deleteIndex = i;
+        }
+    }
+
+    // Delete the note from the data array and re-write the db
+    data.splice(deleteIndex, 1);
+    fs.writeFile("./db/db.json", JSON.stringify(data), function(error) {
+        if (error) {
+            return console.log(error)
+        }
+        console.log("Successfully written to database");
+    })
+    // res.json(notes.filter(note => note.id === parseInt(req.params.id)))
 })
 
 // Starts the server to begin listening
