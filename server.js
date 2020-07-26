@@ -32,9 +32,11 @@ app.use(express.static(path.join(__dirname, "public")));
 // app.get("*", function(_, res) {
 //     res.sendFile(path.join(__dirname, "public", "index.html"));
 // });
+
 // API Routes
 // =============================================================
 
+// Get all notes
 app.get("/api/notes", function(req, res) {
     return res.json(data);
 });
@@ -54,6 +56,7 @@ app.post("/api/notes", function(req, res) {
             return console.log(error)
         }
         console.log("Successfully written to database");
+        res.send("Was successful!");
     })
 });
 
@@ -66,16 +69,16 @@ app.delete("/api/notes/:id", function(req, res) {
             deleteIndex = i;
         }
     }
-
+    
     // Delete the note from the data array and re-write the db
     data.splice(deleteIndex, 1);
     fs.writeFile("./db/db.json", JSON.stringify(data), function(error) {
         if (error) {
-            return console.log(error)
+            return console.log(error);
         }
         console.log("Successfully written to database");
+        res.send("Was successful!");
     })
-    // res.json(notes.filter(note => note.id === parseInt(req.params.id)))
 })
 
 // Starts the server to begin listening
