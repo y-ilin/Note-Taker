@@ -11,7 +11,7 @@
 An application that allows users to write, save, and delete notes, using an Express backend.
 
 ## Deployed Site
-Link to the deployed site: https://polar-beach-98432.herokuapp.com/notes.html
+Link to the deployed site: https://polar-beach-98432.herokuapp.com/
 
 ## License
 Licensed under the MIT License.
