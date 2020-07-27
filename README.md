@@ -12,8 +12,8 @@ An application that allows users to write, save, and delete notes, using an Expr
 
 ## Deployed Site
 Link to the deployed site: https://polar-beach-98432.herokuapp.com/, which will look like:
-![App Screenshot 1](./assets/img/app-screenshot1.png)
-![App Screenshot 2](./assets/img/app-screenshot2.png)
+![App Screenshot 1](./public/assets/img/app-screenshot1.png)
+![App Screenshot 2](./public/assets/img/app-screenshot2.png)
 
 
 ## License
