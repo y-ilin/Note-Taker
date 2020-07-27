@@ -3,7 +3,7 @@
 
 ## Table of Contents
 - [Description](#description)
-- [Deployed Site](#deployedsite)
+- [Deployed Site](#deployed-site)
 - [License](#license)
 - [Contributing](#contributing)
 
