@@ -1,17 +1,12 @@
 [
   {
-    "id": "dc403779-a870-44e0-a0d5-38305a2cbcfc",
-    "title": "asdf",
-    "text": "asdf"
+    "id": "ebf35f9c-6c3b-4e17-8336-c197c215e87f",
+    "title": "Example Note Title",
+    "text": "Example note body"
   },
   {
-    "id": "c6aa79f9-01df-454a-9cc6-5971fe6fb6f9",
-    "title": "dfdf",
-    "text": "dfdfd"
-  },
-  {
-    "id": "fe612726-73fa-4b0c-ae0f-59296146581d",
-    "title": "werwer",
-    "text": "werwer"
+    "id": "d17cd84c-d13c-46fc-bee0-e05ae823ab9a",
+    "title": "Awesome Idea",
+    "text": "Jot down your brilliant idea before you forget it! Now you can come back to it later :)"
   }
 ]
